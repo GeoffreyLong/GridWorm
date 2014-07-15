@@ -1,0 +1,30 @@
+html, body{
+  height:100%;
+  width:100%;
+  margin:0;
+  buffer:0;
+  overflow:hidden;
+}
+.player{
+  position:absolute;
+  width:15%;
+  height:100%;
+  text-align:center
+}
+#playerOne{
+  background:#098789;
+}
+#playerTwo{
+  left:85%;
+  background:#098789;
+}
+#gameBoard{
+  position:absolute;
+  left:15%;
+  height:100%;
+  width:70%;
+  background:#345678;
+}
+.playerLabel{
+  font-size:2em;
+}
