@@ -28,3 +28,17 @@ html, body{
 .playerLabel{
   font-size:2em;
 }
+.drop{
+  position:absolute;
+  background:#123456;
+  border:2px solid #000000;
+}
+.drag{
+  position:absolute;
+  background:#000000;
+  z-index:2;
+}
+.drop.status-over{
+  border:2px solid #FFFFFF;
+  z-index:1;
+}
