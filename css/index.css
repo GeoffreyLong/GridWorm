@@ -35,10 +35,15 @@ html, body{
 }
 .drag{
   position:absolute;
-  background:#000000;
   z-index:2;
 }
 .drop.status-over{
   border:2px solid #FFFFFF;
   z-index:1;
+}
+.drag.player-one{
+  background:#000000;
+}
+.drag.player-two{
+  background:#FFFFFF;
 }

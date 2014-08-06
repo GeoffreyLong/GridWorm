@@ -1,6 +1,8 @@
 $(document).ready(function(){
   // Takes in an element, the number of rows, and the number of columns
   var grid = new function(){
+    // TODO stop the border double highlight problem
+
     // TODO should probably clean up the instantiation
     // to a better function design
 
@@ -47,6 +49,7 @@ $(document).ready(function(){
 
     this.startDrop = function(){
       $('.drop').droppable({
+        tolerance: 'pointer',
         over: function(event, ui){
           $(this).addClass('status-over');
         },
@@ -69,6 +72,7 @@ $(document).ready(function(){
             $(this).attr('data-isOccupied', dragId);
             $(this).droppable('option', 'accept', ui.draggable);
           }
+          ui.draggable.position( { of: $(this), my: 'center', at: 'center' } );
         },
       });
     };
@@ -97,14 +101,31 @@ $(document).ready(function(){
   
   // This function is just for demonstration purposes
   function createDraggables(){
-    for (var i = 0; i < 3; i++){
-      var drag = $('<div class="drag"></div>');
+    var i = 0;
+    var drag = null;
 
+    // Create Player One's
+    for (i = 0; i < 3; i++){
+      drag = $('<div class="drag"></div>');
+      drag.addClass('player-one');
       drag.css({
         'top': 60*i+60+'px',
         'left': '10px',
-        'height': grid.getCellHeight()+'px',
-        'width': grid.getCellWidth()+'px',
+        'height': grid.getCellHeight()-3+'px',
+        'width': grid.getCellWidth()-3+'px',
+      });
+      $('body').append(drag);
+    }
+
+    // Create Player Two's
+    for (i = 0; i < 3; i++){
+      drag = $('<div class="drag"></div>');
+      drag.addClass('player-two');
+      drag.css({
+        'top': 60*i+60+'px',
+        'right': '10px',
+        'height': grid.getCellHeight()-3+'px',
+        'width': grid.getCellWidth()-3+'px',
       });
       $('body').append(drag);
     }
